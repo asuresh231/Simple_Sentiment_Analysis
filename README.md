@@ -1,5 +1,5 @@
 # Simple_Sentiment_Analysis
-For this project I've decided to build a simple sentiment analysis model using the IMDB Movie Reviews Dataset located at https://www.kaggle.com/columbine/imdb-dataset-sentiment-analysis-in-csv-format. My goal for this project was to build a simple and effective sentiment analysis classifier that can be deployed through a REST API(see below). I included the test set('test.csv') in this repository, but could not include the train set because it was too large. 
+For this project I've decided to build a simple sentiment analysis model using the IMDB Movie Reviews Dataset located at https://www.kaggle.com/columbine/imdb-dataset-sentiment-analysis-in-csv-format. My goal for this project was to build a simple and effective sentiment analysis classifier that can be deployed through a REST API(see below). In terms of labelling, the IMDB movies dataset is already pre-labelled with the label '0' representing a bad sentiment and '1' representing a good sentiment. I included the test set('test.csv') in this repository, but could not include the train set because it was too large. 
 
 ## Dependencies
 I have included all dependencies and packages that need to be installed in a 'requirements.txt' file 
