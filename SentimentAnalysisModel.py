@@ -12,6 +12,8 @@ from sklearn.metrics import plot_confusion_matrix
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sn
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
 
 
 class SentimentAnalysis:
@@ -48,6 +50,16 @@ class SentimentAnalysis:
         sgd_logit = SGDClassifier(random_state=random_state, max_iter=max_iter, loss= loss)
         return sgd_logit
 
+    def cross_validation(self, ml_model, scoring_metric, k,
+                         train_matrix, train_label, shuffled=True):#implements k-fold cross validation and plots the scoring_metric
+        cv = KFold(n_splits=k, random_state=1, shuffle= shuffled)
+        model = ml_model
+        scores = cross_val_score(model, train_matrix, train_label, scoring=scoring_metric, cv=cv, n_jobs=-1)
+        plt.plot(scores)
+        plt.xlabel("K-folds")
+        plt.ylabel("Accuracy")
+        plt.savefig('cross_validation_scores'+ '.jpg')
+
     def predict(self, model, test_set):  # function that gets predictions for a model given the modelname and testset.
         predictions = model.predict(test_set)
         return predictions
@@ -69,6 +81,7 @@ class SentimentAnalysis:
                                                                                                               vectorizer)
         sgd_logit = self.sgd_logit_classifier()
         sgd_logit = sgd_logit.fit(train_matrix, train_label)
+        self.cross_validation(sgd_logit, 'accuracy', 5, train_matrix, train_label)
         predictions = self.predict(sgd_logit, test_matrix)
         confusion_matrix = self.confusion_matrix(predictions, test_label)
         joblib.dump(sgd_logit, 'sgd_logit_model.pkl')
