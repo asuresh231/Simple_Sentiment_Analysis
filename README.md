@@ -5,7 +5,7 @@ For this project I've decided to build a simple sentiment analysis model using t
 I have included all dependencies and packages that need to be installed in a 'requirements.txt' file 
 
 ### Model Building 
-The 'SentimentAnalysisModel.py' file in this repository contains the script used to load, preprocess, train and generate predictions for the IMDB reviews. The 'Main.py' file in this repository runs the 'SentimentAnalysisModel.py' file and generates 'sgd_logit_model.pkl','vectorizer.pkl' as well as the confusion matrix generated from my test set predictions. The confusion matrix is located in the 'cm.jpg' file. The 'sgd_logit_model.pkl' file is the Stochastic Gradient Descent Logistic Regression model I saved using the joblib library to conduct sentiment analysis. The 'vectorizer.pkl' file is my tfidf embedder saved using joblib.
+The 'SentimentAnalysisModel.py' file in this repository contains the script used to load, preprocess, train and generate predictions for the IMDB reviews. The 'Main.py' file in this repository runs the 'SentimentAnalysisModel.py' file and generates 'sgd_logit_model.pkl','vectorizer.pkl', 'cross_validation_scores.jpg' and 'cm.jpg' files. The 'sgd_logit_model.pkl' file is the Stochastic Gradient Descent Logistic Regression model I saved using the joblib library to conduct sentiment analysis. The 'vectorizer.pkl' file is my tfidf embedder saved using joblib. The 'cross_validation_scores.jpg' file is an image of the plot I created to measure the effectiveness of my model using cross validation. For this project, I used k-fold cross validation with 5 k-folds. Finally, the 'cm.jpg' file is the confusion matrix generated from the predictions my SDG-Logistic Regression model made on the test set.
 
 
 
