@@ -56,6 +56,7 @@ class SentimentAnalysis:
         model = ml_model
         scores = cross_val_score(model, train_matrix, train_label, scoring=scoring_metric, cv=cv, n_jobs=-1)
         plt.plot(scores)
+        plt.xlim([1, k-1])
         plt.xlabel("K-folds")
         plt.ylabel("Accuracy")
         plt.savefig('cross_validation_scores'+ '.jpg')
